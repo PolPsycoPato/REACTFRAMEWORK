@@ -2,6 +2,7 @@ function SaludoHijo(props){
     //NECESITO "ALGO", UN NOMBRE DE VARIABLE
     //PARA LLAMAR AL METODO DEL PARENT
     var ejecutarPadre = props.metodoPadre;
+
     return (<div>
         <h2 style={{color:"blue"}}>
             Soy un hijo
