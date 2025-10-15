@@ -69,13 +69,13 @@ class Comics extends Component {
 
                 {this.state.comics.map((comic, index) => {
                     return (
-                        <Comic 
-                        key={index} 
-                        id={index}
-                        comic={comic} 
-                        seleccionarFavorito={this.seleccionarFavorito} 
-                        deleteComic={this.deleteComic}>
-                            
+                        <Comic
+                            key={index}
+                            id={index}
+                            comic={comic}
+                            seleccionarFavorito={this.seleccionarFavorito}
+                            deleteComic={this.deleteComic}>
+
                         </Comic>
                     );
                 })}

@@ -10,11 +10,11 @@ class Comic extends Component {
                 //Llamamos al metodo del padre
                 this.props.seleccionarFavorito(this.props.comic);
             }}>FAVORITO</button>
-              <button onClick={() => {
+            <button onClick={() => {
                 var index = parseInt(this.props.id);
                 this.props.deleteComic(index);
             }}>BORRAR</button>
-          
+
         </div>);
     }
 }
