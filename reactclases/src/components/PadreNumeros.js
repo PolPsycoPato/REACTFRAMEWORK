@@ -35,17 +35,14 @@ class PadreNumeros extends Component {
   render() {
     return (
       <div>
-        <h2 style={{ color: "red" }}>Padre de Números</h2>
+        <h1 style={{ color: "red" }}>Padre de Números</h1>
         <button onClick={this.generarNumeros}>Generar nuevos números</button>
-        <h3>Suma total: {this.state.sumaTotal}</h3>
+        <h3 style={{ backgroundColor: "yellow" }}>Suma total: {this.state.sumaTotal}</h3>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-          {this.state.numeros.map((numero, index) => (
-            <HijoNumeros
-              key={index}
-              number={numero}
-              sumarNumeros={this.sumarNumeros}
-            />
-          ))}
+          {
+            this.state.numeros.map((numero, index) => (
+              <HijoNumeros key={index} number={numero} sumarNumeros={this.sumarNumeros} />))
+          }
         </div>
       </div>
     );

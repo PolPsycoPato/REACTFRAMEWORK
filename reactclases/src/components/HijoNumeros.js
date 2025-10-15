@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 class HijoNumeros extends Component {
-  sumarNumeros = () => {
+  seleccionarNumeros = () => {
     const random = this.props.number;
     this.props.sumarNumeros(random);
   };
@@ -9,8 +9,8 @@ class HijoNumeros extends Component {
   render() {
     return (
       <div>
-        <h1 style={{ color: "gold" }}>Número: {this.props.number}</h1>
-        <button onClick={this.sumarNumeros}>Sumar número {this.props.number}</button>
+        <h1 style={{ color: "red" }}>Número: {this.props.number}</h1>
+        <button onClick={this.seleccionarNumeros}>Sumar número {this.props.number}</button>
       </div>
     );
   }
