@@ -1,0 +1,33 @@
+{
+    
+    "workbench.sideBar.location": "right",
+    "workbench.editor.showTabs":"multiple",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.guides.indentation": true,
+    "breadcrumbs.enabled": true,
+    "editor.glyphMargin": false,
+    "editor.overviewRulerBorder": false,
+    "editor.linkedEditing": true,
+    "editor.guides.bracketPairs": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.cursorBlinking": "expand",
+    "editor.fontSize": 13,
+    "editor.mouseWheelZoom": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.inlayHints.fontFamily": "jet",
+    "files.autoSave":"onFocusChange",
+    "editor.wordWrap":"on",
+    "workbench.statusBar.visible": false,
+    "workbench.colorTheme": "Monokai Vibrant",
+    "workbench.iconTheme": "material-icon-theme",
+    "diffEditor.wordWrap": "on",
+    "errorLens.gutterEmoji": {
+        "warning": "⚠️",
+        "error": "⛔"
+    },
+    "errorLens.delay": 1000
+
+}
