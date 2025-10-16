@@ -12,6 +12,7 @@ export default class Menu extends Component {
             <li><a href="./music">Music</a></li>
             <li><a href="./form">Form</a></li>
             <li><a href="./collatz">Collatz</a></li>
+            <li><a href="./seleccionmultiple">Seleccion Multiple</a></li>
           </ul>
         </div>
       </div>

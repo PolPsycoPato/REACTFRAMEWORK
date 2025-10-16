@@ -5,6 +5,7 @@ import Music from "./Music";
 import Cine from "./Cine";
 import Form from "./Form";
 import Collatz from "./Collatz"
+import SeleccionMultiple from "./SeleccionMultiple";
 
 export default class Router extends Component {
     render() {
@@ -16,6 +17,7 @@ export default class Router extends Component {
                     <Route path="/music" element={<Music />} />
                     <Route path="/form" element={<Form />} />
                     <Route path="/collatz" element={<Collatz />} />
+                    <Route path="/seleccionmultiple" element={<SeleccionMultiple />} />
                 </Routes>
             </BrowserRouter>
         )
