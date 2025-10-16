@@ -1,45 +1,28 @@
-import React, { useState } from "react";;
+import React, { Component } from 'react'
 
-export default function Form() {
-  // Estado para guardar el nombre que escribe el usuario
-  const [nombre, setNombre] = useState("");
-  // Estado para guardar el nombre enviado
-  const [nombreMostrado, setNombreMostrado] = useState("");
+export default class Form extends Component {
 
-  // Manejador del cambio en el input
-  const handleChange = (event) => {
-    // 'event' contiene información del input que está cambiando
-    setNombre(event.target.value); // guardamos el texto que se escribe
-  };
 
-  // Manejador del envío del formulario
-  const handleSubmit = (event) => {
-    event.preventDefault(); // evita que se recargue la página
-    console.log("Formulario enviado:", nombre);
-    setNombreMostrado(nombre); // mostramos el nombre en pantalla
-  };
+  cajaNombre = React.createRef();
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2>Formulario simple</h2>
+  peticionesFormulario = (event) => {
+    event.preventDefault();
+    console.log("Peticion lista!");
+    let nombre = this.cajaNombre.current.value;
+    console.log("Nombre Recibido" + nombre);    
+    
+  }
 
-      <form onSubmit={handleSubmit}>
-        <label>Escribe tu nombre: </label>
-        <input
-          type="text"
-          value={nombre}
-          onChange={handleChange}
-          placeholder="Tu nombre aquí"
-        />
-        <button type="submit">Enviar</button>
+  render() {
+    return (
+      <div>
+      <h1>Formulario simple react</h1>
+      <form onSubmit={this.peticionesFormulario}>
+        <label>Nombre: </label>
+        <input type='text' ref={this.cajaNombre}></input>
+        <button>Realizar peticion</button>
       </form>
-
-      <hr />
-
-      {/* Si ya se envió, mostramos el resultado */}
-      {nombreMostrado && (
-        <h3>Hola, <span style={{ color: "red" }}>{nombreMostrado}</span> 👋</h3>
-      )}
-    </div>
-  );
+      </div>
+    )
+  }
 }
