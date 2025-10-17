@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ServicioApiCustomers from './components/ServicioApiCustomers';
 import ServicioApiSuppliers from './components/ServicioApiSuppliers';
+import EmpleadosDepartamento from './components/EmpleadosDepartamento';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
-    <ServicioApiSuppliers />
+    <EmpleadosDepartamento />
   
 );
 

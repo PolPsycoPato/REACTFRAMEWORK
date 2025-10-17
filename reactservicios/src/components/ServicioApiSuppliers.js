@@ -1,8 +1,9 @@
-import axios from "axios";
 import React, { Component } from "react";
+import axios from "axios";
+import Global from "../Global";
 
 export default class ServicioApiSuppliers extends Component {
-    url = "https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers";
+    url = Global.urlNorthWind;
 
     cajaId = React.createRef();
 
@@ -13,8 +14,9 @@ export default class ServicioApiSuppliers extends Component {
 
 
     loadSuppliers = () => {
+        let request ="Suppliers";
         console.log("Antes del servicio");
-        axios.get(this.url).then((response) => {
+        axios.get(this.url+request).then((response) => {
             console.log("Leyendo servicio");
             this.setState({ suppliers: response.data.value });
         });
@@ -22,7 +24,6 @@ export default class ServicioApiSuppliers extends Component {
     };
 
     componentDidMount = () => {
-        console.log("Creando Componente");
         this.loadSuppliers();
     };
 
