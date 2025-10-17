@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import ServicioApiCustomers from './components/ServicioApiCustomers';
 import ServicioApiSuppliers from './components/ServicioApiSuppliers';
 import EmpleadosDepartamento from './components/EmpleadosDepartamento';
+import ExpleadosOficios from './components/ExpleadosOficios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
-    <EmpleadosDepartamento />
+    <ExpleadosOficios />
   
 );
 
