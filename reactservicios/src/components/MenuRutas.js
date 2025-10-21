@@ -1,0 +1,21 @@
+import React, { Component } from "react";
+
+export default class Menu extends Component {
+  render() {
+    return (
+      <div>
+        <div>Menu</div>
+        <div>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="./servicioapicustomers">Cine</a></li>
+            <li><a href="./">Music</a></li>
+            <li><a href="./form">Form</a></li>
+            <li><a href="./collatz">Collatz</a></li>
+            <li><a href="./seleccionmultiple">Seleccion Multiple</a></li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
