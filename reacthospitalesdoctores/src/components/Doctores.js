@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Global from '../Global';
-import DetallesDoctor from './DetallesDoctor';
+import { Link } from 'react-router-dom';
 
 export default class Doctores extends Component {
 
@@ -12,16 +12,14 @@ export default class Doctores extends Component {
     selectedDoctorId: null
   };
 
-  // Cargar doctores de un hospital específico
+ 
   loadDoctoresHospital = () => {
     if (!this.props.idhospital) return;
     const request = `api/doctores/doctoreshospital/${this.props.idhospital}`;
-    axios.get(this.url + request)
-      .then(response => {
-        console.log("Doctores recibidos:", response.data);
-        this.setState({ doctores: response.data });
-      })
-      .catch(error => console.error("Error cargando doctores:", error));
+    const fullUrl = this.url + request;
+    axios.get(fullUrl)
+      .then(response => this.setState({ doctores: response.data }));
+
   };
 
   componentDidMount() {
@@ -55,34 +53,29 @@ export default class Doctores extends Component {
           </thead>
 
           <tbody>
-            {Array.isArray(doctores) && doctores.length > 0 ? (
-              doctores.map((doctor) => (
-                <tr key={doctor.iddoctor ?? doctor.id ?? Math.random()}>
-                  <td>{doctor.apellido}</td>
-                  <td>{doctor.especialidad}</td>
-                  <td>{doctor.salario}</td>
-                  <td>{doctor.idHospital ?? doctor.idHospital ?? this.props.idhospital}</td>
-                  <td>
-                    <button
-                      className="btn btn-sm btn-outline-primary"
-                      onClick={() => this.setState({ selectedDoctorId: doctor.iddoctor ?? doctor.id })}
-                    >
-                      Detalles
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4" className="text-center">Cargando doctores...</td>
-              </tr>
-            )}
+            { doctores.map((doctor) => {
+                const doctorId = doctor.iddoctor ?? doctor.id ?? doctor._id ?? doctor.idDoctor ?? doctor.codigo ?? doctor.dni ?? null;
+                return (
+                  <tr key={doctorId ?? Math.random()}>
+                    <td>{doctor.apellido}</td>
+                    <td>{doctor.especialidad}</td>
+                    <td>{doctor.salario}</td>
+                    <td>{doctor.idHospital ?? doctor.idHospital ?? this.props.idhospital}</td>
+                    <td>
+                      {doctorId ? (
+                        <Link className="btn btn-sm btn-outline-primary" to={`/doctor/${doctorId}`}>
+                          Detalles
+                        </Link>
+                      ) : (
+                        <button className="btn btn-sm btn-outline-secondary" disabled>Sin ID</button>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
-        {/* Renderizar detalles cuando haya un doctor seleccionado */}
-        {this.state.selectedDoctorId && (
-          <DetallesDoctor iddoctor={this.state.selectedDoctorId} />
-        )}
+        {/* La navegación a detalles ahora usa una ruta dedicada /doctor/:id */}
       </div>
     );
   }

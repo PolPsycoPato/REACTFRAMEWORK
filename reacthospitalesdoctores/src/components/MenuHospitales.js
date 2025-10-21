@@ -11,12 +11,10 @@ export default class MenuHospitales extends Component {
   }
 
   loadHospitales = () => {
-    axios.get(this.url + "webresources/hospitales")
-      .then(response => {
-        console.log("Hospitales recibidos:", response.data);
+    axios.get(this.url + "webresources/hospitales").then(response => {
         this.setState({ hospitales: response.data });
       })
-      .catch(error => console.error("Error cargando hospitales:", error));
+
   }
 
   componentDidMount() {
@@ -45,7 +43,7 @@ export default class MenuHospitales extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/doctores">Doctores</NavLink>
+                <NavLink className="nav-link" to="/create-hospital">Crear Hospital</NavLink>
               </li>
               <li className="nav-item dropdown">
                 <button
@@ -58,8 +56,7 @@ export default class MenuHospitales extends Component {
                   Hospitales
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="hospitalesDropdown">
-                  {Array.isArray(hospitales) && hospitales.length > 0 ? (
-                    hospitales.map((hospital) => (
+                  { hospitales.map((hospital) => (
                       <li key={hospital.idhospital ?? hospital.id}>
                         <NavLink
                           className="dropdown-item"
@@ -68,12 +65,7 @@ export default class MenuHospitales extends Component {
                           {hospital.nombre}
                         </NavLink>
                       </li>
-                    ))
-                  ) : (
-                    <li className="dropdown-item text-muted">
-                      Cargando hospitales...
-                    </li>
-                  )}
+                    ))}
                 </ul>
               </li>
             </ul>

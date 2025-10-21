@@ -7,35 +7,41 @@ export default class DetallesDoctor extends Component {
   url = Global.apiDoctores;
 
   state = {
-    doctor: null,
-    loading: false,
-    error: null
+    doctor: null
   }
 
   loadDoctor = (id) => {
     if (!id) return;
-    this.setState({ loading: true, error: null });
-    axios.get(`${this.url}api/doctores/${id}`)
-      .then(res => this.setState({ doctor: res.data, loading: false }))
-      .catch(err => this.setState({ error: err.message || 'Error', loading: false }));
+    // Sanitizar id para evitar caracteres inesperados que provoquen 400
+    const sid = String(id).replace(/[^0-9a-zA-Z\-_.]/g, '');
+    if (!sid) return;
+
+    const fullUrl = `${this.url}api/doctores/${encodeURIComponent(sid)}`;
+    // Intento principal
+    axios.get(fullUrl).then(
+      res => this.setState({ doctor: res.data }),
+      
+      () => {
+        const altUrl = `${this.url}api/doctores?id=${encodeURIComponent(sid)}`;
+        axios.get(altUrl).then(r => this.setState({ doctor: r.data }), () => {});
+      }
+    );
   }
 
   componentDidMount() {
     this.loadDoctor(this.props.iddoctor);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.iddoctor !== this.props.iddoctor) {
+  componentDidUpdate(propiedades) {
+    if (propiedades.iddoctor !== this.props.iddoctor) {
       this.loadDoctor(this.props.iddoctor);
     }
   }
 
   render() {
-    const { doctor, loading, error } = this.state;
+    const { doctor } = this.state;
 
-    if (loading) return <div className="alert alert-info">Cargando detalles...</div>;
-    if (error) return <div className="alert alert-danger">{error}</div>;
-    if (!doctor) return <div className="alert alert-secondary">Seleccione un doctor para ver detalles</div>;
+    if (!doctor) return <div className="alert alert-secondary">Cargando detalles del doctor...</div>;
 
     return (
       <div className="card mt-3">
@@ -44,7 +50,6 @@ export default class DetallesDoctor extends Component {
           <p className="card-text"><strong>Especialidad:</strong> {doctor.especialidad}</p>
           <p className="card-text"><strong>Salario:</strong> {doctor.salario}</p>
           <p className="card-text"><strong>Id Hospital:</strong> {doctor.idHospital}</p>
-          <p className="card-text"><strong>Email:</strong> {doctor.email ?? '—'}</p>
         </div>
       </div>
     );
