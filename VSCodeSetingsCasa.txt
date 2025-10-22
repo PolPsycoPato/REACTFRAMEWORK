@@ -1,8 +1,8 @@
 {
-    
+      
     "workbench.sideBar.location": "right",
     "workbench.editor.showTabs":"multiple",
-    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.vertical":"auto",
     "editor.hideCursorInOverviewRuler": true,
     "editor.guides.indentation": true,
     "breadcrumbs.enabled": true,
@@ -10,7 +10,6 @@
     "editor.overviewRulerBorder": false,
     "editor.linkedEditing": true,
     "editor.guides.bracketPairs": true,
-    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.cursorBlinking": "expand",
     "editor.fontSize": 13,
     "editor.mouseWheelZoom": true,
@@ -23,11 +22,11 @@
     "workbench.statusBar.visible": false,
     "workbench.colorTheme": "Monokai Vibrant",
     "workbench.iconTheme": "material-icon-theme",
-    "diffEditor.wordWrap": "on",
     "errorLens.gutterEmoji": {
         "warning": "⚠️",
         "error": "⛔"
     },
-    "errorLens.delay": 1000
-
+    "errorLens.delay": 500,
+     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+   
 }

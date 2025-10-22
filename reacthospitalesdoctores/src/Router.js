@@ -5,6 +5,7 @@ import MenuHospitales from './components/MenuHospitales';
 import Doctores from './components/Doctores';
 import DetallesDoctor from './components/DetallesDoctor';
 import CreateHospital from './components/CreateHospital';
+import Hospitales from './components/Hospitales';
 
 function DoctoresElement() {
   const { idhospital } = useParams();
@@ -23,10 +24,11 @@ export default class Router extends Component {
         <MenuHospitales />
         <Routes>
           <Route path="/" element={<Home />} />
-            <Route path='/create-hospital/:id?' element={<CreateHospital />} />
+          <Route path='/create-hospital/:id?' element={<CreateHospital />} />
           <Route path="/doctores" element={<Doctores />} />
           <Route path="/doctores/:idhospital" element={<DoctoresElement />} />
-            <Route path="/doctor/:id" element={<DoctorElement />} />
+          <Route path="/doctor/:id" element={<DoctorElement />} />
+          <Route path='/hospitales' element={<Hospitales />} />
         </Routes>
       </BrowserRouter>
     )

@@ -12,8 +12,8 @@ export default function CreateHospital() {
   const telefonoRef = useRef(null);
   const camasRef = useRef(null);
 
-  function submitForm(event) {
-    event.preventDefault();
+  function enviarFormulario(e) {
+    e.preventDefault();
     const url = Global.apiHospitales + 'webresources/hospitales';
 
     let idhospital = '';
@@ -53,14 +53,13 @@ export default function CreateHospital() {
       camas: camas
     };
 
-    // Envío sin manejo explícito de errores ni logs
-    axios.post(url, form).then(function(){});
+    axios.post(url, form).then(function () { });
   }
 
   return (
     <div className="container mt-4">
       <h2>Crear / Editar Hospital</h2>
-  <form onSubmit={submitForm}>
+      <form onSubmit={enviarFormulario}>
         <div className="mb-3">
           <label className="form-label">ID (desde URL)</label>
           <input className="form-control" name="idhospital" defaultValue={id || ''} ref={idRef} />
