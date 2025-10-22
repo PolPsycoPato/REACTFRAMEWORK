@@ -40,15 +40,15 @@ export default class Create extends Component {
                 <form onSubmit={this.crearDepartamento}>
                     <div>
                         <label>Número: </label>
-                        <input type="number" ref={this.cajaNumeroRef} className="form-control" required />
+                        <input type="number" ref={this.cajaNumeroRef} className="form-control"  />
                     </div>
                     <div>
                         <label>Nombre: </label>
-                        <input type="text" ref={this.cajaNombreRef} className="form-control" required />
+                        <input type="text" ref={this.cajaNombreRef} className="form-control"  />
                     </div>
                     <div>
                         <label>Localidad: </label>
-                        <input type="text" ref={this.cajaLocalidadRef} className="form-control" required />
+                        <input type="text" ref={this.cajaLocalidadRef} className="form-control"  />
                     </div>
                     <button className="btn btn-success">
                         Crear departamento

@@ -11,9 +11,9 @@ export default class Router extends Component {
       <BrowserRouter>
         <Menu />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/create' element={<Create />} />
-          <Route path='/edit/:id' element={<Update />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/edit/:id/:dnombre/:loc" element={<Update />} />
         </Routes>
       </BrowserRouter>
     )

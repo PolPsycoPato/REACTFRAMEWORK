@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import React from 'react'; // Added to use React variable
+import React, { Component } from "react";
 import { NavLink } from 'react-router-dom'
 
 export default class Menu extends Component {
