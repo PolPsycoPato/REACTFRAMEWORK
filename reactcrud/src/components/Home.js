@@ -51,7 +51,7 @@ export default class Home extends Component {
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Localidad</th>
-                            <tr></tr>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
